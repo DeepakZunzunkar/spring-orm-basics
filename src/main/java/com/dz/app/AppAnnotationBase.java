@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import com.dz.app.model.entity.Employee;
 import com.dz.app.service.EmployeeService;
 import com.dz.app.serviceImpl.EmployeeServiceImpl;
 import com.dz.app.utility.AppUtility;
 
-public class AppXmlBase {
+public class AppAnnotationBase {
 
 	public static void main(String[] args) {
 		
-		Scanner sc =new Scanner(System.in);
-		EmployeeService eservice = new EmployeeServiceImpl();
+		ApplicationContext  context=new AnnotationConfigApplicationContext(JavaBaseConfig.class);
+		EmployeeService eservice = context.getBean("employeeService",EmployeeService.class);
     	
+		Scanner sc =new Scanner(System.in);
 		Employee empTrn = null;
 		List<Employee> employeeList =null;
 		String status;
@@ -43,7 +47,10 @@ public class AppXmlBase {
 							empTrn = eservice.saveEmployee(empTrn);
 							if(empTrn.getEid()==null) {
 								System.err.println("not added ,employee already exist");
+							}else {
+								System.out.println("Employee Added..");
 							}
+							break;
 				case 2:
 							System.out.println("****** UPDATE BY ID ***** \n");
 							System.out.println("Enter Employee EID : ");

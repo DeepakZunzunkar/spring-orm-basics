@@ -1,5 +1,7 @@
 package com.dz.app;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,6 +27,10 @@ public class App {
 		Employee empTrn = null;
 		List<Employee> employeeList = null;
 		long eid = 0;
+		
+//		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+//		br.readLine();
+		
 		Scanner sc = new Scanner(System.in);
 		EmployeeService empService = context.getBean("employeeService", EmployeeService.class);
 
