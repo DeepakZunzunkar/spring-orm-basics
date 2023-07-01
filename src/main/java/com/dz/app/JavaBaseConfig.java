@@ -17,7 +17,7 @@ import com.dz.app.service.EmployeeService;
 import com.dz.app.serviceImpl.EmployeeServiceImpl;
 
 @Configuration
-//@ComponentScan(basePackages = "com.dz.app.service")
+@ComponentScan(basePackages = "com.dz.app.serviceImpl")
 @EnableTransactionManagement
 public class JavaBaseConfig {
 
@@ -65,10 +65,10 @@ public class JavaBaseConfig {
 		return transactionManager;
 	}
 
-	@Bean("employeeService")
+	/*@Bean("employeeService")
 	public EmployeeService getEmployeeService() {
 		EmployeeServiceImpl employeeDaoImpl = new EmployeeServiceImpl();
 		employeeDaoImpl.setTemplate(getHibernateTemplate());
 		return employeeDaoImpl;
-	}
+	}*/
 }

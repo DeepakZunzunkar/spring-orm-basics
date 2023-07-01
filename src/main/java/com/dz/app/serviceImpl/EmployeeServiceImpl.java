@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Component;
 
 import com.dz.app.model.entity.Employee;
 import com.dz.app.service.EmployeeService;
@@ -16,9 +18,10 @@ import com.dz.app.service.EmployeeService;
  *
  */
 
-
+@Component("employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
+	@Autowired
 	private HibernateTemplate template;
 	
 	@Transactional
